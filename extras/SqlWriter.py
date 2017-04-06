@@ -7,8 +7,6 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 import MySQLdb
 # from Writer import Writer
-
-sys.path.append("/opt/meituan/kms/libs/")
 # import libPythonKms
 
 reload(sys)
@@ -73,16 +71,14 @@ class MysqlWriter():
 
 if __name__ == '__main__':
     cis = {
-        'host': 'data-mysql-cis-write.vip.sankuai.com',
+        'host': '',
         'port': 5002,
         'db': 'cis',
         'user': 'girl',
         'passwd': 'boy'
-        # 'user': libPythonKms.getKeyByName('com.sankuai.cis.fetchsaver', 'db.cis_in_city.username'),
-        # 'passwd': libPythonKms.getKeyByName('com.sankuai.cis.fetchsaver', 'db.cis_in_city.password'),
     }
 
-    # SQL = "insert into poi_tag(`%s`) values(\"%s\")"
+    # SQL = "insert into poi_tag(`%s`) values(\"%s\")
     SQL = "updated poi_tag set whereExpression='mt_main_poi_id IS NOT NULL AND mt_poi_cate1_id=226 AND poi_close_status=0 AND mt_main_poi_id=poi_id AND partition_chain=\'mt\'' where owner='wujunchao'"
     writer = MysqlWriter(**cis)
 
