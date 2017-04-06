@@ -9,7 +9,6 @@ sys.setdefaultencoding('utf-8')
 import MySQLdb
 # from Writer import Writer
 
-sys.path.append("/opt/meituan/kms/libs/")
 import libPythonKms
 
 reload(sys)
@@ -75,13 +74,10 @@ class MysqlWriter():
 if __name__ == '__main__':
     cis = {
         # 'host': "hh",
-        'host': libPythonKms.getKeyByName('com.sankuai.cis.fetchsaver', 'db.mart_cis_tags.host'),
         'port': 5002,
         'db': 'tags',
         # 'user': 'hh',
         # 'passwd': 'hh'
-        'user': libPythonKms.getKeyByName('com.sankuai.cis.fetchsaver', 'db.mart_cis_tags.username'),
-        'passwd': libPythonKms.getKeyByName('com.sankuai.cis.fetchsaver', 'db.mart_cis_tags.password'),
     }
 
     # SQL = "insert into poi_tag(`%s`) values(\"%s\")"
